@@ -16,7 +16,6 @@ activePlayer = 0;
 
 //with textContent Method we will change the content of the first player's score
 // dice - this is the variable which we declared at the beginning of our js file
-//document.querySelector('#current' + activePlayer).textContent = dice;
 //document.querySelector('#current-' + activePlayer).innerHTML = '<em>' + dice + '</em>';
 
 //hide dice with the random number at the beginning changing the CSS property with DOM
@@ -41,5 +40,17 @@ document.querySelector('.btn-roll').addEventListener('click', function(){
     diceDOM.src = 'dice-'+ dice + '.png';
 
   //3.Update the round score - only IF the rolled number was NOT a 1
+    if (dice !== 1){
+      //Add score
+      roundScore += dice;
+      document.querySelector('#current-' + activePlayer).textContent = roundScore;
+    } else {
+      //Next player
+      activePlayer  === 0 ? activePlayer = 1 : activePlayer = 0;
+      roundScore = 0;
 
+      document.getElementById(current-0).textContent = '0';
+      document.getElementById(current-1).textContent = '0';
+
+    }
 });
