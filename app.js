@@ -10,22 +10,11 @@ GAME RULES:
 */
 var scores, roundScore, activePlayer;
 
-scores= [0,0];
-roundScore = 0;
-activePlayer = 0;
+init();
 
 //with textContent Method we will change the content of the first player's score
 // dice - this is the variable which we declared at the beginning of our js file
 //document.querySelector('#current-' + activePlayer).innerHTML = '<em>' + dice + '</em>';
-
-//hide dice with the random number at the beginning changing the CSS property with DOM
-document.querySelector('.dice').style.display = 'none';
-
-document.getElementById('score-0').textContent = '0';
-document.getElementById('score-1').textContent = '0';
-document.getElementById('current-0').textContent = '0';
-document.getElementById('current-1').textContent = '0';
-
 
 //setting an event listener for the button roll
 document.querySelector('.btn-roll').addEventListener('click', function(){
@@ -85,4 +74,31 @@ function nextPlayer(){
   document.querySelector('.player-1-panel').classList.toggle('active');
 
   document.querySelector('.dice').style.display = 'none';
+};
+
+// for init - dont use () !
+document.querySelector('.btn-new').addEventListener('click', init);
+
+function init(){
+  scores = [0,0];
+  activePlayer = 0;
+  roundScore = 0;
+//hide dice with the random number at the beginning changing the CSS property with DOM
+document.querySelector('.dice').style.display = 'none';
+
+document.getElementById('score-0').textContent = '0';
+document.getElementById('score-1').textContent = '0';
+document.getElementById('current-0').textContent = '0';
+document.getElementById('current-1').textContent = '0';
+document.getElementById('name-0').textContent = 'Player 1';
+document.getElementById('name-1').textContent = 'PLayer 2';
+
+//remove a winner class
+document.querySelector('.player-0-panel').classList.remove('winner');
+document.querySelector('.player-1-panel').classList.remove('winner');
+document.querySelector('.player-0-panel').classList.remove('active');
+document.querySelector('.player-1-panel').classList.remove('active');
+
+//adding an active class to the first player
+document.querySelector('.player-0-panel').classList.add('active');
 };
