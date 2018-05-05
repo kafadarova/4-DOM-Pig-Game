@@ -1,0 +1,1 @@
+Dice rolling game, making use of dom and javascript basics to create an interactive game. Scores can be changed by typing a target score input and it could be played by two player with one or two dice
